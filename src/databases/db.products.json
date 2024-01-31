@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "657a008a78b7d0136159b64c"
+  },
+  "id": 1,
+  "title": "Hamburguesa 1",
+  "description": "Primera hamburguesa",
+  "price": 20000,
+  "code": "555BB",
+  "stock": 16,
+  "status": true,
+  "category": "Food"
+},
+{
+  "_id": {
+    "$oid": "657a008a78b7d0136159b64d"
+  },
+  "id": 3,
+  "title": "Hamburguesa 2",
+  "description": "Segunda hamburguesa",
+  "price": 5000,
+  "code": "555AA",
+  "stock": 10,
+  "status": true,
+  "category": "Food"
+},
+{
+  "_id": {
+    "$oid": "657a008a78b7d0136159b64e"
+  },
+  "id": 4,
+  "title": "Hamburguesa 3",
+  "description": "Tercer hamburguesa",
+  "price": 40000,
+  "code": "999PP",
+  "stock": 16,
+  "status": true,
+  "category": "Food"
+},
+{
+  "_id": {
+    "$oid": "657a008a78b7d0136159b64f"
+  },
+  "id": 5,
+  "title": "Hamburguesa 4",
+  "description": "Cuarta hamburguesa",
+  "price": 350,
+  "code": "100PP",
+  "stock": 16,
+  "status": true,
+  "category": "Food"
+},
+{
+  "_id": {
+    "$oid": "657a008a78b7d0136159b650"
+  },
+  "id": 6,
+  "title": "Hamburguesa 5",
+  "description": "Quinta hamburguesa",
+  "price": 900,
+  "code": "AAAA9",
+  "stock": 16,
+  "status": true,
+  "category": "Food"
+},
+{
+  "_id": {
+    "$oid": "657a008a78b7d0136159b651"
+  },
+  "id": 7,
+  "title": "Hamburguesa 6",
+  "description": "Sexta hamburguesa",
+  "price": 8000,
+  "code": "BBBB8",
+  "stock": 20,
+  "status": true,
+  "category": "Food"
+}]

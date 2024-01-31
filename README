@@ -1,0 +1,2 @@
+# PARA USAR ESTE REPOSITORIO SE REQUIERE INSTALAR ESTAS DEPENDENCIAS. 
+npm i express bcrypt commander connect-mongo cookie-parser dotenv express-handlebars jsonwebtoken mongoose mongoose-paginate-v2 multer passport passport-local passport-github2 passport-jwt session crypto nodemailer session moment 

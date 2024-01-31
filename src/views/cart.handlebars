@@ -1,0 +1,42 @@
+<main>
+  <div>
+    <p>{{first_name}} {{last_name}}. <br>Email  {{user.email}}. <br> Rol{{user.role}}</p>
+  </div>
+  <div class="products">
+    <h1>Carrito</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Quantity</th>
+          <th>Price by unit</th>
+        </tr>
+      </thead>
+      <tbody >
+        {{#each products}}
+          <tr>
+            <td>{{this.product.title}}</td>
+            <td>{{this.product.category}}</td>
+            <td>{{this.quantity}}</td>
+            <td>{{this.product.price}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <span class="buy-button"><button>Comprar</button></span>
+</main>
+<script>
+  document.querySelector(".buy-button").addEventListener("click", async (e) => {
+    if ("{{_id}}") {
+      const result = await (await fetch(`/api/carts/{{_id}}/purchase`, {method: "POST"})).json()
+      console.log(result)
+    }
+    else {
+      const result = await (await fetch(`/api/carts/{{id}}/purchase`, {method: "POST"})).json()
+      console.log(result)
+    }
+    window.location.replace("/products")
+  })
+</script>

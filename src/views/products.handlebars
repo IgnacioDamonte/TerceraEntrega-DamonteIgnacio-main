@@ -1,0 +1,69 @@
+<main>
+  <div class="products">
+    <div class="containerLogin"> 
+    <p>Bienvienido {{user.first_name}} {{user.last_name}}. <br> Tu email es {{user.email}}. <br> Tenes {{user.age}} años. <br> Rol: {{user.role}}</p>
+    <br>
+    <button class="cartButton"><a href="/api/session/logout">LogOut</a></button>
+    <br>
+    <button class="cartButton"><a href="/carts/{{user.cart}}">Tu carrito</a></button>
+    <br>
+  </div>
+    <h1>Products</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Stock</th>
+          <th>Price</th>
+          <th>More</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each docs}}
+          <tr class="product">
+            <td>{{this.title}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.price}}</td>
+            <td>
+              {{#if this._id}}
+                <button class="view-more-button" id="{{this._id}}">Mas</button>
+              {{else}}
+                <button class="view-more-button" id="{{this.id}}">Mas</button>
+              {{/if}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <div>
+      {{#if hasPrevPage}}
+        <button class="link-pages">{{prevPage}}</button>
+      {{/if}}
+      <button class="actual-page">{{page}}</button>
+      {{#if hasNextPage}}
+        <button class="link-pages">{{nextPage}}</button>
+      {{/if}}
+    </div>
+  </div>
+  
+</main>
+
+<script>
+  const pagesButtons = document.querySelectorAll(".link-pages")
+  const viewMoreButtons = document.querySelectorAll(".view-more-button")
+  for (let button of pagesButtons) {
+    button.onclick = (e) => {
+      const queryParams = new URLSearchParams(window.location.search)
+      queryParams.set("page", button.innerText)
+      window.location.replace("/products?"+queryParams)
+    }
+  }
+
+  for (let button of viewMoreButtons) {
+    button.onclick = (e) => {
+      window.location.replace("/products/"+e.target.id)
+    }
+  }
+</script>
