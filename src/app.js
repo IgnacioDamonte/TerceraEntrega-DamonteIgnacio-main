@@ -12,8 +12,26 @@ import initializePassport from "./config/passport.config.js"
 import passport from "passport"
 import { Server } from "socket.io"
 import { MONGO_URL, MONGO_DBNAME, PORT } from "./config/config.js"
-
+import swaggerJSDoc from "swagger-jsdoc"
+import  SwaggerUiExpress  from "swagger-ui-express"
 const app = express()
+
+const swaggerOptions = {
+  definition: {
+    openapi:"3.0.1",
+    info: {
+      title: 'Documentacion de productos',
+      description :'Este proyecto tiene productos alimenticios'
+    }
+  },
+  apis: [`${__dirname}/./docs/**/*.yaml`]
+}
+const specs = swaggerJSDoc(swaggerOptions)
+app.use('/apidocs',SwaggerUiExpress.serve, SwaggerUiExpress.setup(specs))
+
+
+
+
 
 app.use(cookieParser())
 app.use(express.json())

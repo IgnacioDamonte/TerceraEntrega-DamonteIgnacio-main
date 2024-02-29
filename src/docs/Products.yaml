@@ -1,0 +1,47 @@
+
+paths:
+  /api/products:
+    get:
+      summary: Obtiene todas los productos
+      tags:
+        - Products
+      responses:
+        "200":
+          description: Los productos fueron vendidos exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Products'
+        "500":
+          description: Error interno del server
+  /api/products/{uid}:
+    get:
+      summary: Obtiene un producto por ID
+      tags:
+        - Products
+components:
+  schemas:
+    Products:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id auto generado por mongo
+        name:
+          type: string
+          description: El nombre del producto
+        Ingredients:
+          type: string
+          description: Ingredientes
+      example:
+        _id: ObjectId("657a008a78b7d0136159b64c")
+        name: Hamburguesa 1
+        Ingredients: double cheddar
+      
+
+    
+
+
+
